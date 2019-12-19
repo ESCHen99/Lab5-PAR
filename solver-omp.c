@@ -4,8 +4,10 @@
  * Function to copy one matrix into another
  */
 
+
 void copy_mat (double *u, double *v, unsigned sizex, unsigned sizey)
 {
+	
 	#pragma omp parallel for collapse(2)
 	for (int i=1; i<=sizex-2; i++)
         for (int j=1; j<=sizey-2; j++) 

@@ -95,7 +95,10 @@ int main( int argc, char *argv[] )
 	    case 0: // JACOBI
 	            residual = relax_jacobi(param.u, param.uhelp, np, np);
 		    // Copy uhelp into u
-		    copy_mat(param.uhelp, param.u, np, np);
+			double* tmp = param.uhelp;
+			param.uhelp = param.u;
+			param.u = tmp;
+//		    copy_mat(param.uhelp, param.u, np, np);
 		    break;
 	    case 1: // GAUSS
 		    residual = relax_gauss(param.u, np, np);
